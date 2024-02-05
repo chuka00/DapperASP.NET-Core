@@ -12,8 +12,8 @@ namespace DapperASP.NET_Core.Repository
 
         public async Task<IEnumerable<Company>> GetCompanies()
         {
-            var query = "SELECT * FROM Companies";
-            using(var connection = _context.CreateConnection())
+            var query = "SELECT Id, Name, Address, Country FROM Companies";
+            using (var connection = _context.CreateConnection())
             {
                 var companies = await connection.QueryAsync<Company>(query);
                 return companies.ToList();
